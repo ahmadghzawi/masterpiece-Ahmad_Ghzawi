@@ -1,0 +1,48 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@expo/samples": "~3.0.3",
+    "@expo/vector-icons": "^10.0.3",
+    "@ishawnwang/withunmounted": "^1.0.1",
+    "@react-navigation/web": "^1.0.0-alpha.9",
+    "axios": "^0.19.0",
+    "expo": "^35.0.0",
+    "expo-asset": "^7.0.0",
+    "expo-camera": "^7.0.0",
+    "expo-constants": "^7.0.1",
+    "expo-font": "^7.0.0",
+    "expo-image-picker": "^7.0.0",
+    "expo-permissions": "^7.0.0",
+    "expo-web-browser": "^7.0.0",
+    "firebase": "^7.5.0",
+    "form-data": "^3.0.0",
+    "image-data-uri": "^2.0.1",
+    "image-to-base64": "^2.0.1",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-code-push": "^5.7.0",
+    "react-native-convert-image-to-base64": "^0.1.0",
+    "react-native-expo-viewport-units": "0.0.8",
+    "react-native-fetch-blob": "^0.10.8",
+    "react-native-fs": "^2.16.2",
+    "react-native-gesture-handler": "~1.3.0",
+    "react-native-image-base64": "^0.1.3",
+    "react-native-image-picker": "^1.1.0",
+    "react-native-modal": "^11.5.1",
+    "react-native-restart": "0.0.13",
+    "react-native-web": "^0.11.7",
+    "react-navigation": "^3.12.0"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^7.1.0"
+  },
+  "private": true
+}

@@ -1,0 +1,45 @@
+###################### POSTS ######################
+# GET http://192.168.86.33:9002/posts/API?sellerID=Asem2&postCategories=car&location=amman&name=mercedes&q=salt
+# GET http://192.168.86.33:9002/posts/API/getOffers?sellerID=hello&buyerOffers=buyer889111
+# POST http://192.168.86.33:9002/posts/API/postAdvertisement
+# {		"sellerID": "Asem",
+#         "postCategories": "i am new data",
+#         "location":"Amman",
+#         "name": "mercedes",
+#         "additionalInfo": "c200",
+#     	"imgUrl": "https://images.summitmedia-digital.com/topgear/images/2018/07/31/BMW-520d1.jpg"}
+
+# PATCH http://192.168.86.33:9002/posts/API/postOffers?id=5dcff00c05c23f2186fa8e58&buyer889111=85k
+# DELETE http://192.168.86.33:9002/posts/API/g/:id
+# PUT http://localhost:5000/posts/API/acceptOffer
+# {
+#   "offerMaker": "5dd03af4694cc74c0fbe210d",
+#   "postId": "5de910a529980e0017b1a010",
+#   "contactNumber" : "0797955153"
+# }
+# PUT http://localhost:5000/posts/API/deleteOffer/
+# {
+#   "offerMaker": "5dd03af4694cc74c0fbe210d",
+#   "postId": "5de7e856caab930017aac3bc"
+# }
+# PUT https://ardwtalabapp.herokuapp.com/posts/API/deniedOffer/
+# {
+#   "offerMaker": "5dd03af4694cc74c0fbe210d",
+#   "postId": "5de910a529980e0017b1a010"
+# }
+# DELETE http://localhost:5000/posts/API/deleteAtSpecificTime/111111111111
+
+# GET http://localhost:5000/posts/API/getUserPosts?sellerID=5dd03149694cc74c0fbe210c
+# DELETE http://localhost:5000/posts/API/deleteUserPosts/5dd03af4694cc74c0fbe210d to delete all posts and offers to spacific user 
+###################### USERS ######################
+
+# GET http://192.168.86.33:9002/users/API/data
+# GET http://192.168.86.33:9002/users/API/auth?email=asem@qaffaf.com&password=a12345
+# POST http://192.168.86.33:9002/users/API/new
+# {
+#  "name":"ASEM22", 
+#     "email": "ADAM2@gmail.com",
+#     "password": "123456",
+#     "phoneNumber" : "0788000288" 
+# }
+# DELETE http://192.168.86.33:9002/users/API/delete/5dd01115afc48440677b7285

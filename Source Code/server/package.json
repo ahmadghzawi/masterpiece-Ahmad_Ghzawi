@@ -1,0 +1,26 @@
+{
+  "name": "3ard-w-talab-server",
+  "version": "1.0.0",
+  "description": "3ard W Talab mobile application Server",
+  "main": "server.js",
+  "scripts": {
+    "dashboard-install": "npm install --prefix dashboard",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dashboard": "npm start ==refix dashboard",
+    "dev": "concurrently \"npm run server\" \"npm run dashboard\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix dashboard && npm run build --prefix dashboard"
+  },
+  "author": "Ahmad Al-Ghzawi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7"
+  },
+  "devDependencies": {
+    "node": "^12.12.0",
+    "nodemon": "^1.19.4"
+  }
+}
