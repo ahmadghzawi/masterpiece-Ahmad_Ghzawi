@@ -17,5 +17,5 @@ The Web Dashboard can be found on
 *	Scan the QR code using Expo app installed on your android mobile
 
 ### Download apk file
-soon...
+soon....
 
