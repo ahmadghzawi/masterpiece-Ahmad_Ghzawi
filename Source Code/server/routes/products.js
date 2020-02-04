@@ -173,11 +173,14 @@ IdsForDeleteArray = [];
 
 setInterval(() => {
   let date = new Date();
+  console.log("Ids:  ", IdsForDeleteArray);
+  console.log({ Hours: date.getHours(), Minutes: date.getMinutes() });
   if (date.getHours() === 15 && date.getMinutes() === 15) {
     IdsForDeleteArray.forEach(_id => productsDB.deleteOne({ _id }));
     IdsForDeleteArray = [];
   }
 }, 59000);
+
 
 router.delete("/deleteAtSpecificTime/:_id", (request, response) => {
   IdsForDeleteArray.push(request.params._id);
