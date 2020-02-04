@@ -17,5 +17,5 @@ The Web Dashboard can be found on
 *	Scan the QR code using Expo app installed on your android mobile
 
 ### Download apk file
-*	apk file ca be downloaded through [3ard-W-Talab.apk](https://github.com/ahmadghzawi/masterpiece-Ahmad_Ghzawi/blob/master/3ard-W-Talab.apk)
+*	apk file can be downloaded through [3ard-W-Talab.apk](https://github.com/ahmadghzawi/masterpiece-Ahmad_Ghzawi/blob/master/3ard-W-Talab.apk)
 
