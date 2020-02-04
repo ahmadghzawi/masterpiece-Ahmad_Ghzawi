@@ -3,11 +3,11 @@ The Web Dashboard can be found on
 [https://ard-w-talab-version-2.herokuapp.com/](https://ard-w-talab-version-2.herokuapp.com/)
 
 #### `Owner`
-##### username: ahmadghzawi
+##### username: owner
 ##### password: Aa123456
 
 #### `Admin`
-##### username: awskhalil
+##### username: admin
 ##### password: Aa123456
 
 
