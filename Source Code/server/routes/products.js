@@ -6,6 +6,7 @@
     204 No Content
     400 Bad Request
     404 Not Found
+    500 Internal Server Error
  */
 const express = require("express");
 const router = express.Router();
@@ -13,40 +14,39 @@ router.use(express.json());
 const productsDB = require("../models/productsDatabase");
 
 router.get("/getProduct/:_id", (req, res) => {
-  let _id = req.params._id;
+  const { _id } = req.params;
   productsDB.findOne({ _id }, (err, product) => {
-    if (err) res.status(400).json(err);
+    if (err) res.status(500).json(err);
     else res.status(200).json(product);
   });
 });
 
-router.get("/categories", async (req, res) => {
-  try {
-    let categories = await productsDB.distinct("product_category");
-    res.status(200).json(categories);
-  } catch {
-    response.status(500).json({ message: err.message });
-  }
+router.get("/categories", (req, res) => {
+  productsDB.distinct("product_category", (err, categories) => {
+    if (err) res.status(500).json({ message: err });
+    else res.status(200).json(categories);
+  });
 });
 
-router.get("/getProductsByCategory/:category", async (req, res) => {
-  try {
-    let products = await productsDB.find({
-      product_category: req.params.category
-    });
-    res.status(200).json(products);
-  } catch {
-    response.status(500).json({ message: err.message });
-  }
+router.get("/getProductsByCategory/:category", (req, res) => {
+  const product_category = req.params.category;
+  productsDB.find(
+    {
+      product_category
+    },
+    (err, products) => {
+      if (err) response.status(500).json({ message: err });
+      else res.status(200).json(products);
+    }
+  );
 });
 
-/*<===========================fetch all posts===========================*/
+//fetch all posts
 router.get("/data", async (request, response) => {
   try {
     let products = await productsDB.find();
     let categories = await productsDB.distinct("product_category");
     response.status(200).json({ products, categories });
-    // response.status(200).json();
   } catch (err) {
     response.status(500).json({ message: err.message });
   }
@@ -118,10 +118,9 @@ async function buyerOffers(buyer) {
   return arr;
 }
 
-/*<=========================== add new products ===========================>*/
+//add new products
 router.post("/newProduct", async (request, response) => {
-  // console.log(request.body)
-  let {
+  const {
     seller_id,
     product_category,
     location,
@@ -142,16 +141,16 @@ router.post("/newProduct", async (request, response) => {
     try {
       await productsDB.create(request.body, (err, doc) => {
         if (err) {
-          response.status(400).json({ message: err.message });
+          response.status(500).json({ message: err.message });
         } else response.status(201).json(doc);
       });
     } catch (err) {
-      response.status(500).json(err);
+      response.status(404).json(err);
     }
   }
 });
 
-/*<=========================== add offer ===========================>*/
+//add offer
 router.get("/postOffers", async (request, response) => {
   let { _id, buyer, offer } = request.query;
   let newObj = {
@@ -169,44 +168,21 @@ router.get("/postOffers", async (request, response) => {
   }
 });
 
-/*<=========================== DELETE a Post  func.===========================>*/
-let IdsForDeleteArray = [];
-router.delete("/deleteAtSpecificTime/:id", async (request, response) => {
-  let ids = request.params._id;
-  IdsForDeleteArray.push(ids);
-  if (IdsForDeleteArray.length !== 0) {
-    DeleteTimer;
-  }
-  response.json("it will be deleted at 12 AM");
-});
+//delete product
+IdsForDeleteArray = [];
 
-const DeleteAtSpecificTime = async id => {
-  let output = null;
-  try {
-    await productsDB.findByIdAndDelete(id, (err, doc) => {
-      if (err) {
-        output = { message: err.message };
-      } else {
-        output = { deletion: doc };
-        IdsForDeleteArray.shift();
-      }
-    });
-  } catch (error) {
-    output = { message: error.message };
-  }
-  return output;
-};
-
-const DeleteTimer = setInterval(() => {
-  var date = new Date();
-  if (date.getHours() === 0 && date.getMinutes() === 0) {
-    IdsForDeleteArray.forEach(async id => {
-      await DeleteAtSpecificTime(id);
-      console.log("deleted items", await DeleteAtSpecificTime());
-    });
+setInterval(() => {
+  let date = new Date();
+  if (date.getHours() === 15 && date.getMinutes() === 15) {
+    IdsForDeleteArray.forEach(_id => productsDB.deleteOne({ _id }));
     IdsForDeleteArray = [];
   }
-}, 50000);
+}, 59000);
+
+router.delete("/deleteAtSpecificTime/:_id", (request, response) => {
+  IdsForDeleteArray.push(request.params._id);
+  response.status(200).json('ok')
+});
 
 router.put("/acceptOffer/", async (request, response) => {
   await productsDB.findById(request.body._id, async (err, doc) => {
@@ -244,7 +220,6 @@ router.put("/acceptOffer/", async (request, response) => {
 });
 
 router.put("/deniedOffer/", async (request, response) => {
-  // let { buyer, _id } = request.body
   let query = request.body.buyer + ".status";
   try {
     await productsDB.updateOne(

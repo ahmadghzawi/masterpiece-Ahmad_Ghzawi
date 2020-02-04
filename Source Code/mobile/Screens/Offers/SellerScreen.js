@@ -54,11 +54,14 @@ export default class SellerScreen extends Component {
       .catch(err => console.log(err.message))
       .then(
         axios
-          .put("https://ard-w-talab-version-2.herokuapp.com/posts/API/acceptOffer", {
-            _id,
-            buyer,
-            contactNumber
-          })
+          .put(
+            "https://ard-w-talab-version-2.herokuapp.com/posts/API/acceptOffer",
+            {
+              _id,
+              buyer,
+              contactNumber
+            }
+          )
           .then(res => {
             this.fetchSellerOffers();
           })
@@ -70,10 +73,13 @@ export default class SellerScreen extends Component {
   deniedOfferHandler = post => {
     let { buyer, _id } = post;
     axios
-      .put("https://ard-w-talab-version-2.herokuapp.com/posts/API/deniedOffer/", {
-        _id,
-        buyer
-      })
+      .put(
+        "https://ard-w-talab-version-2.herokuapp.com/posts/API/deniedOffer/",
+        {
+          _id,
+          buyer
+        }
+      )
       .then(res => {
         this.fetchSellerOffers();
       })
@@ -108,6 +114,7 @@ export default class SellerScreen extends Component {
             }
             return (
               <TouchableOpacity
+                style={{ marginTop: 10 }}
                 onPress={() => {
                   this.detailsHandler(offer.item, true);
                 }}
@@ -116,16 +123,14 @@ export default class SellerScreen extends Component {
                   style={{
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    alignItems: "flex-start",
-                    height: vh(10),
-                    marginTop: vh(2)
+                    alignItems: "flex-start"
                   }}
                 >
                   <Image
                     source={{ uri: offer.item.image_path }}
                     style={{
                       width: vw(20),
-                      height: vh(8),
+                      height: vh(10),
                       borderRadius: 8,
                       margin: vw(1)
                     }}
@@ -140,7 +145,7 @@ export default class SellerScreen extends Component {
                     }}
                   >
                     <Text
-                      style={{ fontSize: 20, color: "white" }}
+                      style={{ fontSize: 17, color: "white" }}
                     >{`You've got an offer: ${offer.item.price} JOD`}</Text>
                     <Text style={{ fontSize: 15, color: "white" }}>
                       {offer.item.title}

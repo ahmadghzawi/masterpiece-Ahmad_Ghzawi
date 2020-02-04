@@ -85,6 +85,7 @@ export default class BuyerScreen extends Component {
             formatDate = formatDate.split(" ");
             return (
               <TouchableOpacity
+                style={{ marginTop: 10 }}
                 onPress={() => {
                   this.postHandler(offer.item, true);
                 }}
@@ -93,16 +94,14 @@ export default class BuyerScreen extends Component {
                   style={{
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    alignItems: "flex-start",
-                    height: vh(10),
-                    marginTop: vh(2)
+                    alignItems: "flex-start"
                   }}
                 >
                   <Image
                     source={{ uri: offer.item.image_path }}
                     style={{
                       width: vw(20),
-                      height: vh(9),
+                      height: vh(10),
                       borderRadius: 8,
                       margin: vw(1)
                     }}
@@ -110,7 +109,7 @@ export default class BuyerScreen extends Component {
                   <View
                     style={{
                       width: vw(70),
-                      borderRadius: 10,
+                      borderRadius: 8,
                       backgroundColor: "#2096F3",
                       fontWeight: "400",
                       padding: 10
@@ -123,7 +122,7 @@ export default class BuyerScreen extends Component {
                         " " +
                         formatDate[3]}
                     </Text>
-                    <Text style={{ fontSize: 20, color: "white" }}>
+                    <Text style={{ fontSize: 17, color: "white" }}>
                       {`You've sent an offer for ${offer.item.price} JOD`}
                     </Text>
                     {Array.isArray(offer.item.status) ? (

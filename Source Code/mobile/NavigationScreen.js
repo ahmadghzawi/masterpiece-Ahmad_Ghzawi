@@ -12,6 +12,7 @@ import CameraScreen from "./Screens/CameraScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import LandingScreen from "./Screens/LandingScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Dimensions } from "react-native";
 
 const HomeStack = createStackNavigator({
   Home
@@ -68,12 +69,19 @@ const landingStack = createStackNavigator({
   LandingScreen
 });
 
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  CameraStack,
-  OfferStack,
-  ProfileStack
-});
+const tabNavigator = createBottomTabNavigator(
+  {
+    HomeStack,
+    CameraStack,
+    OfferStack,
+    ProfileStack
+  },
+  {
+    tabBarOptions: {
+      style: { height: Math.floor(Dimensions.get("window").height * 0.075) }
+    }
+  }
+);
 
 let mainNavigator = createSwitchNavigator({
   landingStack,

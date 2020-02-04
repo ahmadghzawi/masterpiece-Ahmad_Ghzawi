@@ -50,7 +50,7 @@ export default class AddPost extends Component {
         this.state
       )
       .then()
-      .catch(err => console.log(err));
+      .catch(err => alert("Please, fill the details"));
     this.props.isVisible(false, "submitted");
   };
 
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: 10,
-    width: 50,
+    width: 70,
     borderRadius: 10,
     backgroundColor: "#cbdcf0"
   },

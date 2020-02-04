@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "3ard W Talab ",
-    "slug": "3ard-W-Talab",
+    "name": "3ard w talab ",
+    "slug": "3ard-w-talab",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/3ard-W-Talab-icon.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/3ard-W-Talab-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

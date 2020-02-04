@@ -191,7 +191,7 @@ export default class Profile extends Component {
                           source={{ uri: post.item.image_path }}
                           style={{
                             width: vw(20),
-                            height: vh(8),
+                            height: vh(10),
                             borderRadius: 8,
                             margin: vw(1)
                           }}
@@ -240,7 +240,6 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     backgroundColor: "black",
     width: "100%",
-    height: 200,
     justifyContent: "center",
     alignItems: "center"
   },

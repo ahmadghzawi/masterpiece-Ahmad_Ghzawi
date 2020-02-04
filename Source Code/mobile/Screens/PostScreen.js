@@ -82,7 +82,7 @@ export default class AddPost extends Component {
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <Text style={{ fontSize: 27, marginLeft: 20, marginTop: 5 }}>
+            <Text style={{ fontSize: 25, marginLeft: 20, marginTop: 5, maxWidth: '75%' }}>
               {title}
             </Text>
             <TouchableOpacity
