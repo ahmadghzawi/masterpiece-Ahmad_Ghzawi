@@ -1,16 +1,3 @@
-## Dashboard
-The Web Dashboard can be found on
-[https://ard-w-talab-version-2.herokuapp.com/](https://ard-w-talab-version-2.herokuapp.com/)
-
-#### `Owner`
-##### username: owner
-##### password: Aa123456
-
-#### `Admin`
-##### username: admin
-##### password: Aa123456
-
-
 ## Mobile Application (android)
 ### Using Expo
 *	Go to [https://expo.io/@ahmadghzawi/3ard-W-Talab](https://expo.io/@ahmadghzawi/3ard-W-Talab)
